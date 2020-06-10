@@ -9,6 +9,7 @@ function App() {
   const [apods, setApods] = useState([]);
   //slice of state here for search to keep track of value
   const [searchText, setSearchText] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = () => {
@@ -16,6 +17,7 @@ function App() {
         .get(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`)
         .then((res) => {
           setApods(res.data);
+          setLoading(!loading);
         })
         .catch((err) => {
           console.log("this did not work");
@@ -23,6 +25,8 @@ function App() {
     };
     fetchData();
   }, []);
+
+  if (loading) return <p>I'm loading! Please be patient</p>;
 
   return (
     <div className="App">
