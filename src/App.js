@@ -11,14 +11,17 @@ function App() {
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
-    axios
-      .get(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`)
-      .then((res) => {
-        setApods(res.data);
-      })
-      .catch((err) => {
-        console.log("this did not work");
-      });
+    const fetchData = () => {
+      axios
+        .get(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`)
+        .then((res) => {
+          setApods(res.data);
+        })
+        .catch((err) => {
+          console.log("this did not work");
+        });
+    };
+    fetchData();
   }, []);
 
   return (

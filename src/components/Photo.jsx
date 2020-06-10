@@ -2,7 +2,6 @@ import React from "react";
 
 export default function Photo(props) {
   const { data } = props;
-  console.log(data);
   return (
     <div className="photo-display">
       <div>
@@ -12,13 +11,10 @@ export default function Photo(props) {
         <div>
           <h2>{data.title}</h2>
           <h3>{data.date}</h3>
+          <h4>Photo Credit: {data.copyright}</h4>
           <p>{data.explanation}</p>
         </div>
       </div>
     </div>
   );
 }
-//variable data = props
-
-//return div of photo
-//and div data
