@@ -1,6 +1,14 @@
 import React from "react";
 
-export default function PhotoDisplay() {}
-//updater prop needed
-//event handler needed using updater
-//return the div
+export default function Search(props) {
+  const { updater } = props;
+  const changeHandler = (event) => {
+    updater(event.target.value);
+  };
+
+  return (
+    <div className="search-container">
+      <input onChange={changeHandler} />
+    </div>
+  );
+}

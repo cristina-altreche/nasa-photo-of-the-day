@@ -1,11 +1,12 @@
-import React from 'react'
-import Photo from './Photo'
+import React from "react";
+import Photo from "./Photo";
 
-//export default function takes in prop aka data
-export default function PhotoDisplay(){
+export default function PhotoDisplay(props) {
+  const { apodData } = props;
 
+  return (
+    <div className="photo-display-container">
+      <Photo data={apodData} />
+    </div>
+  );
 }
-//new variable equal to props
-
-//return photo div 
-//random photo
