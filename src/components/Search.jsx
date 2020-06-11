@@ -11,7 +11,7 @@ export default function Search(props) {
       <h2>
         APOD<i className="fas fa-user-astronaut"></i>
       </h2>
-      <input onChange={changeHandler} />
+      <input placeholder="Search" onChange={changeHandler} />
     </div>
   );
 }

@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  Card,
-  CardImg,
-  CardText,
-  CardBody,
-  CardTitle,
-  CardSubtitle,
-  CardImgOverlay,
-} from "reactstrap";
+import { Card, CardImg, CardBody, CardTitle, CardSubtitle } from "reactstrap";
 
 export default function Photo(props) {
   const { data } = props;
@@ -19,6 +11,13 @@ export default function Photo(props) {
     }
   };
 
+  const prettyDate = () => {
+    const date = new Date(data.date + "T00:00").toDateString();
+    return date;
+  };
+  // const date =
+  // console.log(date);
+
   return (
     <div className="photo-display">
       <div className="miniBar">
@@ -27,7 +26,7 @@ export default function Photo(props) {
       </div>
       <CardBody>
         <CardTitle style={{ fontSize: "20px" }}>{data.title}</CardTitle>
-        <CardSubtitle fontSize="14px">{data.date}</CardSubtitle>
+        <CardSubtitle fontSize="14px">{prettyDate()}</CardSubtitle>
       </CardBody>
 
       <Card className="cover" inverse>
