@@ -8,6 +8,9 @@ export default function Search(props) {
 
   return (
     <div className="search-container">
+      <h2>
+        APOD<i className="fas fa-user-astronaut"></i>
+      </h2>
       <input onChange={changeHandler} />
     </div>
   );

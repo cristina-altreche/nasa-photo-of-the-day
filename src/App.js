@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Spinner } from "reactstrap";
 import "./App.css";
 import PhotoDisplay from "./components/PhotoDisplay";
 import Search from "./components/Search";
@@ -14,7 +15,9 @@ function App() {
   useEffect(() => {
     const fetchData = () => {
       axios
-        .get(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`)
+        .get(
+          `https://api.nasa.gov/planetary/apod?api_key=R2uwcDASDueZ1wICDgLaJEa1ramuFHSqkSFqkPgW`
+        )
         .then((res) => {
           setApods(res.data);
           setLoading(!loading);
@@ -26,17 +29,11 @@ function App() {
     fetchData();
   }, []);
 
-  if (loading) return <p>I'm loading! Please be patient</p>;
+  if (loading)
+    return <Spinner style={{ width: "3rem", height: "3rem" }} type="grow" />;
 
   return (
     <div className="App">
-      <h1>
-        Astronomy Picture of The Day{" "}
-        <span role="img" aria-label="go!">
-          🚀
-        </span>
-        !
-      </h1>
       <Search updater={setSearchText} />
       <PhotoDisplay apodData={apods} />
     </div>
