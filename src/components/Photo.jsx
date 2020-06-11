@@ -1,5 +1,8 @@
 import React from "react";
-import { Card, CardImg, CardBody, CardTitle, CardSubtitle } from "reactstrap";
+import { Card, CardImg, CardBody, CardTitle, CardSubtitle,CardLink } from "reactstrap";
+import BottomNavigation from '@material-ui/core/BottomNavigation';
+import Button from '@material-ui/core/Button';
+import SaveIcon from '@material-ui/icons/Save';
 
 export default function Photo(props) {
   const { data } = props;
@@ -15,8 +18,6 @@ export default function Photo(props) {
     const date = new Date(data.date + "T00:00").toDateString();
     return date;
   };
-  // const date =
-  // console.log(date);
 
   return (
     <div className="photo-display">
@@ -44,8 +45,19 @@ export default function Photo(props) {
         >
           <CardSubtitle>{photoCred()}</CardSubtitle>
           <CardBody>{data.explanation}</CardBody>
+          <CardLink>This is a Link</CardLink>
         </Card>
-      </CardBody>
+      </CardBody> 
+     <BottomNavigation>
+
+  <Button
+        variant="contained"
+        size="large"
+        startIcon={<SaveIcon />}>
+        Save
+      </Button>
+     </BottomNavigation>
     </div>
+   
   );
 }
